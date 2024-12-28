@@ -21,6 +21,11 @@ namespace TheGame
             }
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            if (GameModeControllerBase.Instance != null)
+            {
+                SceneSetup();
+            }
         }
 
         private void Update()
@@ -48,7 +53,12 @@ namespace TheGame
             Resources.UnloadUnusedAssets();
             
             yield return SceneManager.LoadSceneAsync(sceneName);
-            
+
+            SceneSetup();
+        }
+
+        public void SceneSetup()
+        {
             var gameModeController = GameModeControllerBase.Instance;
             m_inputController.SetCamera(gameModeController.m_camera);
             gameModeController.Initialize(m_inputController);

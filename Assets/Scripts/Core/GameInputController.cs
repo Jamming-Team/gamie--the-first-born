@@ -51,7 +51,7 @@ namespace TheGame
             
             var mouseScreenPosition = Input.mousePosition;
             mouseScreenPosition.z = m_camera.WorldToScreenPoint(mouseScreenPosition).z;
-            m_mouseWorldPosition = mouseScreenPosition;
+            m_mouseWorldPosition = m_camera.ScreenToWorldPoint(mouseScreenPosition);
             // Ray ray = m_camera.ScreenPointToRay(Input.mousePosition);
             // RaycastHit hitData;
             // if (Physics.Raycast(ray, out hitData, 1000))

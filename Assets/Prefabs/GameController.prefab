@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ff0ed6b16791372a6521dbc379b0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_inputController: {fileID: 0}
+  m_inputController: {fileID: 6517615921862110469}
