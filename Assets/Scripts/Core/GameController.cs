@@ -11,6 +11,7 @@ namespace TheGame
         public static GameController Instance { get; private set; }
 
         [SerializeField] private GameInputController m_inputController;
+        public GameInputController InputController => m_inputController;
         
         private void Awake()
         {
@@ -61,7 +62,7 @@ namespace TheGame
         {
             var gameModeController = GameModeControllerBase.Instance;
             m_inputController.SetCamera(gameModeController.m_camera);
-            gameModeController.Initialize(m_inputController);
+            gameModeController.Initialize();
         }
         
     }

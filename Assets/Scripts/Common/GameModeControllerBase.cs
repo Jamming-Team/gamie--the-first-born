@@ -42,10 +42,10 @@ namespace TheGame
 #endif
         }
 
-        public virtual void Initialize(GameInputController inputManager)
+        public virtual void Initialize()
         {
             m_stateMachine.Init(this);
-            m_gameInputManager = inputManager;
+            // m_gameInputManager = inputManager;
         }
         
     }
