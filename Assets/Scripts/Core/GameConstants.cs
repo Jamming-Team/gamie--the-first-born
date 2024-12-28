@@ -19,6 +19,7 @@ namespace TheGame
                 public const string RMC = "RMC";
                 public const string LMC = "LMC";
                 public const string SEND_BOX = "SEND_BOX";
+                public const string PAUSE = "PAUSE";
             }
         }
 
@@ -28,6 +29,10 @@ namespace TheGame
             public const string HOW_TO_PLAY_BUTTON = "HowToPlayButton";
             public const string QUIT_BUTTON = "QuitButton";
             public const string BACK_BUTTON = "BackButton";
+            
+            public const string RESUME_BUTTON = "ResumeButton";
+            public const string RESTART_BUTTON = "RestartButton";
+            public const string TO_MAIN_MENU_BUTTON = "ToMainMenuButton";
         }
     }
 }

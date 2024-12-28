@@ -6,10 +6,10 @@ namespace TheGame
 {
     public class GameInputController : MonoBehaviour
     {
-        public event EventHandler OnRMCAction;
         public event EventHandler<bool> OnLMC;
         public event EventHandler<bool> OnRMC;
         public event EventHandler OnSendBox;
+        public event EventHandler OnPause;
 
         public static GameInputController Instance { get; set; }
         
@@ -21,6 +21,7 @@ namespace TheGame
         private InputAction m_LMCAction;
         private InputAction m_RMCAction;
         private InputAction m_sendBoxAction;
+        private InputAction m_pauseAction;
         
         // private Vector3 m_mouseWorldPosition;
         public Vector3 mouseWorldPosition => GetMouseWorldPosition();
@@ -58,6 +59,7 @@ namespace TheGame
             m_LMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.RMC);
             m_RMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.LMC);
             m_sendBoxAction = m_inputActionMap.FindAction(GameConstants.Input.Main.SEND_BOX);
+            m_pauseAction = m_inputActionMap.FindAction(GameConstants.Input.Main.PAUSE);
 
             Enable();
         }
@@ -71,6 +73,7 @@ namespace TheGame
             m_LMCAction.canceled += M_LMCActionOncanceled;
             m_RMCAction.canceled += M_RMCActionOncanceled;
             m_sendBoxAction.started += M_sendBoxActionOnstarted;
+            m_pauseAction.started += M_pauseActionOnstarted;
         }
 
         public void Disable()
@@ -80,6 +83,7 @@ namespace TheGame
             m_LMCAction.canceled -= M_LMCActionOncanceled;
             m_RMCAction.canceled -= M_RMCActionOncanceled;
             m_sendBoxAction.started -= M_sendBoxActionOnstarted;
+            m_pauseAction.started -= M_pauseActionOnstarted;
         }
 
         private void M_LMCActionOnstarted(InputAction.CallbackContext obj)
@@ -106,8 +110,11 @@ namespace TheGame
         {
             OnSendBox?.Invoke(this, EventArgs.Empty);
         }
-
-
+        
+        private void M_pauseActionOnstarted(InputAction.CallbackContext obj)
+        {
+            OnPause?.Invoke(this, EventArgs.Empty);
+        }
 
         void Update()
         {

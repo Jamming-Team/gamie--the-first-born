@@ -39,6 +39,11 @@ namespace TheGame
             // Debug.Log(m_inputController.mouseWorldPosition);
         }
 
+        public void SetGameTimeScale(float scale)
+        {
+            Time.timeScale = scale;
+        }
+
         public void LoadScene(string sceneName)
         {
             StartCoroutine(LoadSceneAsync(sceneName));
@@ -69,6 +74,7 @@ namespace TheGame
             m_currentCamera = gameModeController.m_camera;
             gameModeController.Initialize();
         }
+        
         
     }
 }

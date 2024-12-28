@@ -5,12 +5,17 @@ namespace TheGame
 {
     public static class GameEventsView
     {
+        // Main Menu
         public static Action OnPressPlay;
-        public static Action OnPressResume;
         public static Action OnPressHowToPlay;
         public static Action OnPressBack;
         public static Action OnPressQuitGame;
+        
+        // --- ---
+        
+        // Gameplay
+        public static Action OnPressResume;
         public static Action OnPressRestartGame;
-        public static Action OnPress;
+        public static Action OnPressToMainMenu;
     }
 }

@@ -1021,6 +1021,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PAUSE",
+                    "type": "Button",
+                    "id": "acca88c4-fd65-474f-b871-94ac0c2fc58d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1054,6 +1063,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SEND_BOX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "340a1ffc-91bd-49b8-ac89-5b3b1ecb0aad",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PAUSE",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
