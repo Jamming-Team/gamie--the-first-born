@@ -5,6 +5,8 @@ namespace TheGame
 {
     public class DragNDropHandler : MonoBehaviour
     {
+
+        // private float lastWheelValue = 0;
         // private GameInputController m_gameInputController;
 
         // public void Initialize(GameInputController gameInputController)
@@ -43,9 +45,11 @@ namespace TheGame
             }
 
             // Для колесика
-            // Debug.Log(GameController.Instance.InputController.mouseWheelScroll);
-
-
+            // if (GameController.Instance.InputController.mouseWheelScroll != lastWheelValue)
+            // {
+            //     Debug.Log(GameController.Instance.InputController.mouseWheelScroll);
+            //     lastWheelValue = GameController.Instance.InputController.mouseWheelScroll;
+            // }
         }
 
         private void InputControllerOnOnSendBox(object sender, EventArgs e)
