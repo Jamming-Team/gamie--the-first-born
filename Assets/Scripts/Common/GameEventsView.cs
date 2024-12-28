@@ -17,5 +17,6 @@ namespace TheGame
         public static Action OnPressResume;
         public static Action OnPressRestartGame;
         public static Action OnPressToMainMenu;
+        public static Action<int> OnTimerChanged;
     }
 }
