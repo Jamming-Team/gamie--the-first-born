@@ -4,19 +4,22 @@ namespace TheGame
 {
     public class GP_PauseGMState : GameModeStateBase
     {
-        public override void Init(MonoBehaviour core)
+        protected override void OnEnter()
         {
-            base.Init(core);
+            base.OnEnter();
             GameEventsView.OnPressResume += OnPressResume;
             GameEventsView.OnPressRestartGame += OnPressRestart;
             GameEventsView.OnPressToMainMenu += OnPressToMainMenu;
+            GameController.Instance.SetGameTimeScale(0f);
         }
 
-        private void OnDestroy()
+        protected override void OnExit()
         {
+            base.OnExit();
             GameEventsView.OnPressResume -= OnPressResume;
             GameEventsView.OnPressRestartGame -= OnPressRestart;
             GameEventsView.OnPressToMainMenu -= OnPressToMainMenu;
+            GameController.Instance.SetGameTimeScale(1f);
         }
         
         private void OnPressResume()
@@ -32,18 +35,6 @@ namespace TheGame
         private void OnPressToMainMenu()
         {
             GameController.Instance.LoadScene(GameConstants.SceneNames.MAIN_MENU);
-        }
-
-        protected override void OnEnter()
-        {
-            base.OnEnter();
-            GameController.Instance.SetGameTimeScale(0f);
-        }
-        
-        protected override void OnExit()
-        {
-            base.OnExit();
-            GameController.Instance.SetGameTimeScale(1f);
         }
     }
 }

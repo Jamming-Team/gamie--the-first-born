@@ -28,7 +28,7 @@ namespace TheGame
             {
                 x.Init(this);
                 x.OnTransitionRequired += ChangeState;
-                Debug.Log(x.GetType());
+                // Debug.Log(x.GetType());
             });
             // m_currentState = m_states[0];
             ChangeState(m_states[0].GetType());
@@ -49,9 +49,9 @@ namespace TheGame
                 return x.GetType() == nextStateType;
             });
             
-            Debug.Log(nextState);
+            // Debug.Log(nextState);
             
-            Debug.Log(!Equals(m_currentState, nextState));
+            // Debug.Log(!Equals(m_currentState, nextState));
             
             
             if (nextState != null && !Equals(m_currentState, nextState))
@@ -62,7 +62,7 @@ namespace TheGame
                 }
                 nextState.Enter();
                 m_currentState = nextState;
-                Debug.Log(m_currentState);
+                // Debug.Log(m_currentState);
             }
         }
     }

@@ -27,7 +27,11 @@ namespace TheGame
 
         protected void SetViewsVisibility(bool visibility)
         {
-            m_views.ForEach(x => x.SetActive(visibility));
+            m_views?.ForEach(x =>
+            {
+                if (x)
+                    x.SetActive(visibility);
+            });
         }
     }
 }

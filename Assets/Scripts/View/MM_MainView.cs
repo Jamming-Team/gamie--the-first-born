@@ -38,7 +38,7 @@ namespace TheGame
         
         private void M_howToPlayButtonOnclicked()
         {
-            Debug.Log("CLicked");
+            // Debug.Log("CLicked");
             GameEventsView.OnPressHowToPlay?.Invoke();
         }
         

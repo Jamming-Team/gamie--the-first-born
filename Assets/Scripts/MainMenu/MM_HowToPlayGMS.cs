@@ -4,14 +4,15 @@ namespace TheGame
 {
     public class MM_HowToPlayGMS : GameModeStateBase
     {
-        public override void Init(MonoBehaviour core)
+        protected override void OnEnter()
         {
-            base.Init(core);
+            base.OnEnter();
             GameEventsView.OnPressBack += RequestTransition<MM_MainGMS>;
         }
-        
-        public void OnDestroy()
+
+        protected override void OnExit()
         {
+            base.OnExit();
             GameEventsView.OnPressBack -= RequestTransition<MM_MainGMS>;
         }
     }

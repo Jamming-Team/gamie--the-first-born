@@ -5,16 +5,17 @@ namespace TheGame
 {
     public class MM_MainGMS : GameModeStateBase
     {
-        public override void Init(MonoBehaviour core)
+        protected override void OnEnter()
         {
-            base.Init(core);
+            base.OnEnter();
             GameEventsView.OnPressHowToPlay += RequestTransition<MM_HowToPlayGMS>;
             GameEventsView.OnPressPlay += OnPressPlay;
             GameEventsView.OnPressQuitGame += OnPressQuitGame;
         }
 
-        private void OnDestroy()
+        protected override void OnExit()
         {
+            base.OnExit();
             GameEventsView.OnPressHowToPlay -= RequestTransition<MM_HowToPlayGMS>;
             GameEventsView.OnPressPlay -= OnPressPlay;
             GameEventsView.OnPressQuitGame -= OnPressQuitGame;
