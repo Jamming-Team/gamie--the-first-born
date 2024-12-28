@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TheGame
@@ -8,12 +9,20 @@ namespace TheGame
         public override void Init(MonoBehaviour core)
         {
             base.Init(core);
-            GameEventsView.OnPressOptions += RequestTransition<MM_OptionsGMS>;
+            GameEventsView.OnPressHowToPlay += RequestTransition<MM_HowToPlayGMS>;
             GameEventsView.OnPressQuitGame += () =>
             {
                 GameController.Instance.QuitGame();
             };
         }
-        
+
+        public void OnDestroy()
+        {
+            GameEventsView.OnPressHowToPlay -= RequestTransition<MM_HowToPlayGMS>;
+            GameEventsView.OnPressQuitGame -= () =>
+            {
+                GameController.Instance.QuitGame();
+            };
+        }
     }
 }

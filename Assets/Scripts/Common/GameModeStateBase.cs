@@ -12,7 +12,7 @@ namespace TheGame
         public override void Init(MonoBehaviour core)
         {
             base.Init(core);
-            SetViewsVisibility(false);
+            Exit();
         }
 
         protected override void OnEnter()
