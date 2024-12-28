@@ -6,18 +6,45 @@ namespace TheGame
 {
     public class GameInputController : MonoBehaviour
     {
+        public event EventHandler OnRMCAction;
+        public event EventHandler<bool> OnLMC;
+        public event EventHandler<bool> OnRMC;
+        public event EventHandler OnSendBox;
+        
         public static GameInputController Instance { get; set; }
         
         [SerializeField] private PlayerInput m_playerInput;
-        [HideInInspector]
-        public Camera m_camera;
+        [SerializeField] private float m_scrollWheelSpeed = 10f;
         
-        private Vector3 m_mouseWorldPosition;
-        public Vector3 mouseWorldPosition => m_mouseWorldPosition;
-        private ActorInputManager m_player;
-        public ActorInputManager player => m_player;
+        private InputActionMap m_inputActionMap;
+
+        private InputAction m_LMCAction;
+        private InputAction m_RMCAction;
+        private InputAction m_sendBoxAction;
         
-        private void Awake()
+        // private Vector3 m_mouseWorldPosition;
+        public Vector3 mouseWorldPosition => GetMouseWorldPosition();
+        public float mouseWheelScroll => GetMouseWheel();
+        
+        // private void Awake()
+        // {
+        //     if (Instance != null)
+        //     {
+        //         Debug.LogWarning("instance not null");
+        //         Destroy(gameObject);
+        //     }
+        //     Instance = this;
+        //     DontDestroyOnLoad(gameObject);
+        //     
+        //     m_inputActionMap = m_playerInput.actions.FindActionMap("DragNDrop");
+        //     m_LMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.RMC);
+        //     m_RMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.LMC);
+        //     m_sendBoxAction = m_inputActionMap.FindAction(GameConstants.Input.Main.SEND_BOX);
+        //
+        //     Enable();
+        // }
+        
+        public void Init()
         {
             if (Instance != null)
             {
@@ -25,33 +52,77 @@ namespace TheGame
                 Destroy(gameObject);
             }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
             
-            m_player = new ActorInputManager("Player", m_playerInput.actions);
+            m_inputActionMap = m_playerInput.actions.FindActionMap("DragNDrop");
+            m_LMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.RMC);
+            m_RMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.LMC);
+            m_sendBoxAction = m_inputActionMap.FindAction(GameConstants.Input.Main.SEND_BOX);
+
+            Enable();
         }
+        
+        public void Enable()
+        {
+            // Debug.Log($"Enable");
+
+            m_LMCAction.started += M_LMCActionOnstarted;
+            m_RMCAction.started += M_RMCActionOnstarted;
+            m_LMCAction.canceled += M_LMCActionOncanceled;
+            m_RMCAction.canceled += M_RMCActionOncanceled;
+            m_sendBoxAction.started += M_sendBoxActionOnstarted;
+        }
+
+        public void Disable()
+        {
+            m_LMCAction.started -= M_LMCActionOnstarted;
+            m_RMCAction.started -= M_RMCActionOnstarted;
+            m_LMCAction.canceled -= M_LMCActionOncanceled;
+            m_RMCAction.canceled -= M_RMCActionOncanceled;
+            m_sendBoxAction.started -= M_sendBoxActionOnstarted;
+        }
+
+        private void M_LMCActionOnstarted(InputAction.CallbackContext obj)
+        {
+            OnLMC?.Invoke(this, true);
+        }
+        
+        private void M_RMCActionOnstarted(InputAction.CallbackContext obj)
+        {
+            OnRMC?.Invoke(this, true);
+        }
+        
+        private void M_RMCActionOncanceled(InputAction.CallbackContext obj)
+        {
+            OnRMC?.Invoke(this, false);
+        }
+
+        private void M_LMCActionOncanceled(InputAction.CallbackContext obj)
+        {
+            OnLMC?.Invoke(this, false);
+        }
+        
+        private void M_sendBoxActionOnstarted(InputAction.CallbackContext obj)
+        {
+            OnSendBox?.Invoke(this, EventArgs.Empty);
+        }
+
+
 
         void Update()
         {
-            UpdateMouseWorldPosition();
+            // UpdateMouseWorldPosition();
         }
 
-        public void SetCamera(Camera camera)
+        private Vector3 GetMouseWorldPosition()
         {
-            m_camera = camera;
-        }
-
-        private void UpdateMouseWorldPosition()
-        {
-            if (!m_camera)
-                return;
-            else
-            {
-                m_mouseWorldPosition = Vector3.zero;
-            }
+            var camera = GameController.Instance.currentCamera;
+            if (!camera)
+                return Vector3.zero;
             
             var mouseScreenPosition = Input.mousePosition;
-            mouseScreenPosition.z = m_camera.WorldToScreenPoint(mouseScreenPosition).z;
-            m_mouseWorldPosition = m_camera.ScreenToWorldPoint(mouseScreenPosition);
+            mouseScreenPosition.z = camera.WorldToScreenPoint(mouseScreenPosition).z;
+            return camera.ScreenToWorldPoint(mouseScreenPosition);
             // Ray ray = m_camera.ScreenPointToRay(Input.mousePosition);
             // RaycastHit hitData;
             // if (Physics.Raycast(ray, out hitData, 1000))
@@ -60,60 +131,10 @@ namespace TheGame
             // }
         }
 
-
-        public class ActorInputManager
+        private float GetMouseWheel()
         {
-            public event EventHandler OnInteractAction;
-            public event EventHandler OnJumpAction;
-
-            private InputActionMap m_inputActionMap;
-
-            private InputAction m_moveAction;
-            private InputAction m_interactAction;
-            private InputAction m_jumpAction;
-
-            public ActorInputManager(string mapName, InputActionAsset inputActionAsset)
-            {
-                m_inputActionMap = inputActionAsset.FindActionMap(mapName);
-                m_moveAction = m_inputActionMap.FindAction(GameConstants.Input.Main.MOVE);
-                m_interactAction = m_inputActionMap.FindAction(GameConstants.Input.Main.INTERACT);
-                m_jumpAction = m_inputActionMap.FindAction(GameConstants.Input.Main.JUMP);
-
-                Enable();
-            }
-            
-            public void Enable()
-            {
-                m_interactAction.started += M_interactActionOnstarted;
-                m_jumpAction.started += M_jumpActionOnstarted;
-            }
-            
-            public void Disable()
-            {
-                m_interactAction.started -= M_interactActionOnstarted;
-                m_jumpAction.started -= M_jumpActionOnstarted;
-            }
-            
-            public Vector2 GetMovementVectorNormalized()
-            {
-                Vector2 inputVector = m_moveAction.ReadValue<Vector2>();
-                inputVector = inputVector.normalized;
-                return inputVector;
-            }
-
-            private void M_jumpActionOnstarted(InputAction.CallbackContext obj)
-            {
-                OnJumpAction?.Invoke(this, EventArgs.Empty);
-            }
-
-            private void M_interactActionOnstarted(InputAction.CallbackContext obj)
-            {
-                OnInteractAction?.Invoke(this, EventArgs.Empty);
-            }
-            
+            return Input.GetAxis("Mouse ScrollWheel") * m_scrollWheelSpeed;
         }
-        
-
 
     }
 }

@@ -990,6 +990,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "DragNDrop",
+            "id": "3997ae4e-c2a5-48e9-9d98-e430c8033c4f",
+            "actions": [
+                {
+                    "name": "RMC",
+                    "type": "Button",
+                    "id": "6e05f42c-9ad7-4d7c-b073-40b1fd42ce86",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LMC",
+                    "type": "Button",
+                    "id": "cea5e036-0b26-4887-adc4-357ccfe51b4c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SEND_BOX",
+                    "type": "Button",
+                    "id": "6b85a39f-2a05-4b95-bd04-9357d0903520",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a9e04d4b-1c36-4bd1-af09-c9cf704dc2a1",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RMC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba65a19d-30a8-4b24-b218-ade0761951b8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LMC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02c119c2-094d-4f78-ba20-9ee7a78ab8b7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SEND_BOX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -13,6 +13,9 @@ namespace TheGame
         [SerializeField] private GameInputController m_inputController;
         public GameInputController InputController => m_inputController;
         
+        private Camera m_currentCamera;
+        public Camera currentCamera => m_currentCamera;
+        
         private void Awake()
         {
             if (Instance != null)
@@ -27,11 +30,13 @@ namespace TheGame
             {
                 SceneSetup();
             }
+            
+            m_inputController.Init();
         }
 
         private void Update()
         {
-            Debug.Log(m_inputController.mouseWorldPosition);
+            // Debug.Log(m_inputController.mouseWorldPosition);
         }
 
         public void LoadScene(string sceneName)
@@ -61,7 +66,7 @@ namespace TheGame
         public void SceneSetup()
         {
             var gameModeController = GameModeControllerBase.Instance;
-            m_inputController.SetCamera(gameModeController.m_camera);
+            m_currentCamera = gameModeController.m_camera;
             gameModeController.Initialize();
         }
         
