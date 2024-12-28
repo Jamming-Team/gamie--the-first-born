@@ -15,9 +15,9 @@ namespace TheGame
         {
             public class Main
             {
-                public const string MOVE = "MOVE";
-                public const string INTERACT = "INTERACT";
-                public const string JUMP = "JUMP";
+                public const string RMC = "RMC";
+                public const string LMC = "LMC";
+                public const string SEND_BOX = "SEND_BOX";
             }
         }
     }

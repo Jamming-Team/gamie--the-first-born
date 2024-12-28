@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerInput: {fileID: 1078694613205385720}
-  m_camera: {fileID: 0}
 --- !u!114 &1078694613205385720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +73,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 3997ae4e-c2a5-48e9-9d98-e430c8033c4f
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &2802032702797863503

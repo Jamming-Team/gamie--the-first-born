@@ -12,5 +12,11 @@ namespace TheGame
         //     base.Initialize(inputManager);
         //     m_dragNDropHandler.Initialize(inputManager);
         // }
+        
+        public override void Initialize()
+        {
+            base.Initialize();
+            m_dragNDropHandler.Init();
+        }
     }
 }
