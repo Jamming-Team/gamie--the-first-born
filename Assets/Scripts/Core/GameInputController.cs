@@ -10,10 +10,11 @@ namespace TheGame
         public event EventHandler<bool> OnLMC;
         public event EventHandler<bool> OnRMC;
         public event EventHandler OnSendBox;
-        
+
         public static GameInputController Instance { get; set; }
         
         [SerializeField] private PlayerInput m_playerInput;
+        [SerializeField] private float m_scrollWheelSpeed = 10f;
         
         private InputActionMap m_inputActionMap;
 
@@ -23,7 +24,8 @@ namespace TheGame
         
         // private Vector3 m_mouseWorldPosition;
         public Vector3 mouseWorldPosition => GetMouseWorldPosition();
-        
+        public float mouseWheelScroll => GetMouseWheel();
+
         // private void Awake()
         // {
         //     if (Instance != null)
@@ -33,7 +35,7 @@ namespace TheGame
         //     }
         //     Instance = this;
         //     DontDestroyOnLoad(gameObject);
-        //     
+        //
         //     m_inputActionMap = m_playerInput.actions.FindActionMap("DragNDrop");
         //     m_LMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.RMC);
         //     m_RMCAction = m_inputActionMap.FindAction(GameConstants.Input.Main.LMC);
@@ -41,7 +43,7 @@ namespace TheGame
         //
         //     Enable();
         // }
-        
+
         public void Init()
         {
             if (Instance != null)
@@ -59,7 +61,7 @@ namespace TheGame
 
             Enable();
         }
-        
+
         public void Enable()
         {
             // Debug.Log($"Enable");
@@ -84,12 +86,12 @@ namespace TheGame
         {
             OnLMC?.Invoke(this, true);
         }
-        
+
         private void M_RMCActionOnstarted(InputAction.CallbackContext obj)
         {
             OnRMC?.Invoke(this, true);
         }
-        
+
         private void M_RMCActionOncanceled(InputAction.CallbackContext obj)
         {
             OnRMC?.Invoke(this, false);
@@ -99,7 +101,7 @@ namespace TheGame
         {
             OnLMC?.Invoke(this, false);
         }
-        
+
         private void M_sendBoxActionOnstarted(InputAction.CallbackContext obj)
         {
             OnSendBox?.Invoke(this, EventArgs.Empty);
@@ -127,6 +129,11 @@ namespace TheGame
             // {
             //     m_mouseWorldPosition = hitData.point;
             // }
+        }
+
+        private float GetMouseWheel()
+        {
+            return Input.GetAxis("Mouse ScrollWheel") * m_scrollWheelSpeed;
         }
 
     }

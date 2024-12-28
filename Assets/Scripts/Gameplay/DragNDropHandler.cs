@@ -41,20 +41,23 @@ namespace TheGame
             {
                 Debug.Log("Mouse is over: " + colliderUnderMouse.gameObject.name);
             }
-            
-            
+
+            // Для колесика
+            // Debug.Log(GameController.Instance.InputController.mouseWheelScroll);
+
+
         }
-        
+
         private void InputControllerOnOnSendBox(object sender, EventArgs e)
         {
             Debug.Log($"Send Box: {e}");
         }
-        
+
         private void InputControllerOnOnRMC(object sender, bool pressed)
         {
             Debug.Log($"RMC: {pressed}");
         }
-        
+
         private void InputControllerOnOnLMC(object sender, bool pressed)
         {
             Debug.Log($"LMC: {pressed}");
