@@ -44,13 +44,20 @@ namespace TheGame
         {
             if (!m_camera)
                 return;
-            
-            Ray ray = m_camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitData;
-            if (Physics.Raycast(ray, out hitData, 1000))
+            else
             {
-                m_mouseWorldPosition = hitData.point;
+                m_mouseWorldPosition = Vector3.zero;
             }
+            
+            var mouseScreenPosition = Input.mousePosition;
+            mouseScreenPosition.z = m_camera.WorldToScreenPoint(mouseScreenPosition).z;
+            m_mouseWorldPosition = mouseScreenPosition;
+            // Ray ray = m_camera.ScreenPointToRay(Input.mousePosition);
+            // RaycastHit hitData;
+            // if (Physics.Raycast(ray, out hitData, 1000))
+            // {
+            //     m_mouseWorldPosition = hitData.point;
+            // }
         }
 
 

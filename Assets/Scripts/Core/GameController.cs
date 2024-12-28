@@ -48,6 +48,10 @@ namespace TheGame
             Resources.UnloadUnusedAssets();
             
             yield return SceneManager.LoadSceneAsync(sceneName);
+            
+            var gameModeController = GameModeControllerBase.Instance;
+            m_inputController.SetCamera(gameModeController.m_camera);
+            gameModeController.Initialize(m_inputController);
         }
         
     }
