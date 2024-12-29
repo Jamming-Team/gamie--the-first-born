@@ -17,8 +17,8 @@ namespace TheGame
         [SerializeField] private BoxController m_boxController;
         [SerializeField] private PresentGenerator m_presentGenerator;
         
-        private int m_totalPoints = 0;
-        public int totalPoints => m_totalPoints;
+        private float m_totalPoints = 0;
+        public float totalPoints => m_totalPoints;
         
         // public override void Initialize(GameInputController inputManager)
         // {
@@ -52,7 +52,14 @@ namespace TheGame
 
         private void OnCalculateBoxScore(List<Present> arg1, bool arg2)
         {
-            IncreaseScore(10);
+            float final_box_score = 0f;
+            arg1.ForEach(x =>
+            {
+                Debug.Log(x);
+                final_box_score += x.presentValue;
+            });
+            final_box_score *= .5f * arg1.Count * (arg2 ? .5f : 1f);
+            IncreaseScore(final_box_score);
         }
 
         public void StartGame()
@@ -78,7 +85,7 @@ namespace TheGame
             m_timeLeft = m_gameTimer;
         }
         
-        public void IncreaseScore(int points)
+        public void IncreaseScore(float points)
         {
             m_totalPoints += points;
             GameEventsView.OnScoreChanged?.Invoke(m_totalPoints);

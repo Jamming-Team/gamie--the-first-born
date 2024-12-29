@@ -6,9 +6,14 @@ namespace TheGame
 {
     public class Present : MonoBehaviour
     {
-        [SerializeField] private LayerMask _boxLayerMask;
-        [SerializeField] private LayerMask _presentLayerMask;
+        [SerializeField]
+        private LayerMask _boxLayerMask;
+        [SerializeField]
+        private LayerMask _presentLayerMask;
 
+        [SerializeField] private float m_presentValue = 5f;
+        public float presentValue => m_presentValue;
+        
         public float disableX = -10f;
         public float speed = 1f;
 

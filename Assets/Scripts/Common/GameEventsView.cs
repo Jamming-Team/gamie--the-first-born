@@ -18,6 +18,6 @@ namespace TheGame
         public static Action OnPressRestartGame;
         public static Action OnPressToMainMenu;
         public static Action<int> OnTimerChanged;
-        public static Action<int> OnScoreChanged;
+        public static Action<float> OnScoreChanged;
     }
 }

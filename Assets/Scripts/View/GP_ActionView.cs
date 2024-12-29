@@ -26,7 +26,7 @@ namespace TheGame
             GameEventsView.OnScoreChanged -= OnScoreChanged;
         }
 
-        private void OnScoreChanged(int obj)
+        private void OnScoreChanged(float obj)
         {
             m_scoreLabel.text = obj.ToString();
         }
