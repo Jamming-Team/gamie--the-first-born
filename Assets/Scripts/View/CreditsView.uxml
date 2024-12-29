@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/View/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=e3a74b0c8b1c4d2fbda7af6d1b131753&amp;type=3#MainViewStyle" />
+    <ui:VisualElement name="Panel" class="panel">
+        <ui:VisualElement name="CenterPanel" class="center-panel">
+            <ui:VisualElement name="InnerPanel" class="InnerPanel" style="flex-grow: 1; padding-bottom: 0; margin-bottom: 5%; height: 80%;">
+                <ui:Label text="CREDITS" name="TitleLabel" style="white-space: normal; font-size: 32px; align-items: stretch; -unity-text-align: upper-center;" />
+                <ui:Label text="&lt;/&gt; Xid/Praza - programmer&#10;&lt;/&gt; dgopadakak - programmer&#10;🖌 Chmonya - art assets" name="DescriptionLabel" style="white-space: normal; font-size: 16px; padding-right: 2px; padding-left: 2px; margin-left: 2px; margin-right: 2px;" />
+                <ui:VisualElement class="logo-credits" style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:Button text="BACK" name="BackButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

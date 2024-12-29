@@ -11,6 +11,13 @@ namespace TheGame
             GameEventsView.OnPressHowToPlay += RequestTransition<MM_HowToPlayGMS>;
             GameEventsView.OnPressPlay += OnPressPlay;
             GameEventsView.OnPressQuitGame += OnPressQuitGame;
+            GameEventsView.OnPressCredits += OnPressCredits;
+        }
+
+        private void OnPressCredits()
+        {
+            // Debug.Log("OnPressCredits");
+            RequestTransition<MM_CreditsGMS>();
         }
 
         protected override void OnExit()
@@ -19,6 +26,7 @@ namespace TheGame
             GameEventsView.OnPressHowToPlay -= RequestTransition<MM_HowToPlayGMS>;
             GameEventsView.OnPressPlay -= OnPressPlay;
             GameEventsView.OnPressQuitGame -= OnPressQuitGame;
+            GameEventsView.OnPressCredits -= RequestTransition<MM_CreditsGMS>;
         }
         
         private void OnPressPlay()

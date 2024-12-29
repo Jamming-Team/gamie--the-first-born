@@ -1,0 +1,76 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/View/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=e3a74b0c8b1c4d2fbda7af6d1b131753&amp;type=3#MainViewStyle" />
+    <ui:VisualElement name="Panel" class="panel">
+        <ui:VisualElement name="CenterPanel" class="center-panel-how-to-play">
+            <ui:Label text="HOW SCORE IS CALCULATED" />
+            <ui:VisualElement name="InnerPanel" class="InnerPanel" style="flex-grow: 1; height: 80%; flex-direction: column;">
+                <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; flex-direction: row;">
+                    <ui:VisualElement class="TableCellVertical" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                        <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:VisualElement class="logo-details" style="flex-grow: 1;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:Label text="RULES" name="TitleLabel" style="white-space: normal; font-size: 22px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="TableCellVertical" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                        <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:VisualElement class="logo-details" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Visuals/presents/podarok-1-konfeta.png?fileID=2800000&amp;guid=786d04e4fdae81d85bb3af7ead92082f&amp;type=3#podarok-1-konfeta&quot;);" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:Label text="RULES" name="TitleLabel" style="white-space: normal; font-size: 22px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; flex-direction: row;">
+                    <ui:VisualElement class="TableCellVertical" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                        <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:VisualElement class="logo-details" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Visuals/presents/podarok-3-shelkun.png?fileID=2800000&amp;guid=a918e1e6e19a62d5cb775e5cff7ee774&amp;type=3#podarok-3-shelkun&quot;);" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:Label text="RULES" name="TitleLabel" style="white-space: normal; font-size: 22px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="TableCellVertical" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                        <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:VisualElement class="logo-details" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Visuals/presents/podarok-4-creeper.png?fileID=2800000&amp;guid=bdca6fdd22080f5b7bd524b5fb803bbe&amp;type=3#podarok-4-creeper&quot;);" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:Label text="10" name="TitleLabel" style="white-space: normal; font-size: 22px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; flex-direction: row;">
+                    <ui:VisualElement class="TableCellVertical" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                        <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:VisualElement class="logo-details" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Visuals/presents/podarok-5-cookine-man.png?fileID=2800000&amp;guid=661fb438db08b82beb8d96bfc11cce88&amp;type=3#podarok-5-cookine-man&quot;);" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 1;">
+                                <ui:Label text="RULES" name="TitleLabel" style="white-space: normal; font-size: 22px; -unity-text-align: middle-center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="TableCellVertical" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                        <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                            <ui:VisualElement class="TableCellVertical" style="flex-grow: 0; max-height: 106px; align-items: center; justify-content: space-around;">
+                                <ui:Label text="MULTIPLY BONUS = &#10;0.5 * presents_count&#10;&#10;OVERLAP PENALTY = &#10;SCORE * 0.5&#10;" name="TitleLabel" style="white-space: normal; font-size: 16px; -unity-text-align: middle-center; margin-top: -93px; margin-right: 0; margin-bottom: -95px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; justify-content: flex-start; align-content: flex-start; width: 177px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                <ui:Button text="&lt;&lt;" name="HowToPlayNextButton" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 20%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

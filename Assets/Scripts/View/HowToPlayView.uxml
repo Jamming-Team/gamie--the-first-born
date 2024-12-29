@@ -1,11 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/View/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=e3a74b0c8b1c4d2fbda7af6d1b131753&amp;type=3#MainViewStyle" />
-    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; align-items: center; align-self: auto; justify-content: center;">
-        <ui:VisualElement name="CenterPanel" class="center-panel" style="flex-grow: 1; align-self: auto; justify-content: flex-start; align-items: center; max-height: 60%; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; width: 30%;">
+    <ui:VisualElement name="Panel" class="panel">
+        <ui:VisualElement name="CenterPanel" class="center-panel-how-to-play">
             <ui:VisualElement name="InnerPanel" class="InnerPanel" style="flex-grow: 1; padding-bottom: 0; margin-bottom: 5%; height: 80%;">
-                <ui:Label text="1.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&#10;2.&#10;3.&#10;4." style="white-space: normal; font-size: 17px;" />
+                <ui:Label text="RULES" name="TitleLabel" style="white-space: normal; font-size: 32px; align-items: stretch; -unity-text-align: upper-center;" />
+                <ui:Label text=" Your objective is to prepare Christmas presents. Fit in the box as many as you can and then send it to get another one. The more items you have in the box, the more is your score multiplier for it.&#10;But beware! If you overlap a toy with another one, the box will send itself for reduced score value.&#10;" name="DescriptionLabel" style="white-space: normal; font-size: 17px;" />
+                <ui:Label text="CONTROLS" name="TitleLabel" style="white-space: normal; font-size: 32px; align-items: stretch; -unity-text-align: upper-center;" />
+                <ui:Label text="Left Mouse Click to drag and drop&#10;Mouse Wheel to rotate&#10;SPACE to send current box&#10;ESC to enter the pause menu" name="DescriptionLabel" style="white-space: normal; font-size: 17px;" />
             </ui:VisualElement>
-            <ui:Button text="EXIT" name="BackButton" />
+            <ui:VisualElement class="TableCellHorizontal" style="flex-grow: 1;">
+                <ui:Button text="TO MAIN MENU" name="BackButton" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 80%;" />
+                <ui:Button text="&gt;&gt;" name="HowToPlayNextButton" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 20%;" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

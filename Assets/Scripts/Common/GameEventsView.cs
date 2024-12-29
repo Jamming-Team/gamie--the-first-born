@@ -10,6 +10,8 @@ namespace TheGame
         public static Action OnPressHowToPlay;
         public static Action OnPressBack;
         public static Action OnPressQuitGame;
+        public static Action OnPressHowToPlayNext;
+        public static Action OnPressCredits;
         
         // --- ---
         
