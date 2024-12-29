@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_contentsRoot: {fileID: 1635518387}
   m_lidTransform: {fileID: 25539511}
   m_lidOffset: 1
-  m_collider: {fileID: 0}
+  m_collider: {fileID: 1585008806}
 --- !u!212 &1585008804
 SpriteRenderer:
   m_ObjectHideFlags: 0

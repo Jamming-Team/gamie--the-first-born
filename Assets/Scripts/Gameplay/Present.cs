@@ -8,6 +8,8 @@ namespace TheGame
     {
         [SerializeField]
         private LayerMask _boxLayerMask;
+        [SerializeField]
+        private LayerMask _presentLayerMask;
         
         public float disableX = -10f;
         public float speed = 1f;
@@ -51,13 +53,18 @@ namespace TheGame
             }
             else
             {
-                List<Collider2D> overlapList = new List<Collider2D>();
+                List<Collider2D> overlapBoxList = new List<Collider2D>();
                 ContactFilter2D boxContactFilter = new ContactFilter2D();
                 boxContactFilter.SetLayerMask(_boxLayerMask);
-                Physics2D.OverlapCollider(gameObject.GetComponent<Collider2D>(), boxContactFilter, overlapList);
-                if (overlapList.Count > 0 && IsFullyInsideBox(overlapList[0].gameObject))
+                Physics2D.OverlapCollider(gameObject.GetComponent<Collider2D>(), boxContactFilter, overlapBoxList);
+                if (overlapBoxList.Count > 0 && IsFullyInsideBox(overlapBoxList[0].gameObject))
                 {
                     _currState = PresentState.InBox;
+                    List<Collider2D> overlapPresentsList = new List<Collider2D>();
+                    ContactFilter2D presentContactFilter = new ContactFilter2D();
+                    presentContactFilter.SetLayerMask(_presentLayerMask);
+                    Physics2D.OverlapCollider(gameObject.GetComponent<Collider2D>(), presentContactFilter, overlapPresentsList);
+                    overlapBoxList[0].gameObject.GetComponent<BoxController>().AddPresent(this, overlapPresentsList.Count > 0);
                 }
                 else
                 {

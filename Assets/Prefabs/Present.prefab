@@ -104,6 +104,9 @@ MonoBehaviour:
   _boxLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  _presentLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   disableX: -6
   speed: 1
 --- !u!60 &1524413903582202287

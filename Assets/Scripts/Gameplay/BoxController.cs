@@ -18,7 +18,7 @@ namespace TheGame
         [SerializeField] private GameObject m_contentsRoot;
         [SerializeField] private Transform m_lidTransform;
         [SerializeField] private float m_lidOffset;
-        [SerializeField] private BoxCollider2D m_collider;
+        [SerializeField] private PolygonCollider2D m_collider;
 
         private List<Present> m_presentsList = new();
         private bool m_boxIsAvaliable = false;
