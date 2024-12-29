@@ -6,6 +6,9 @@ namespace TheGame
     public class DragNDropHandler : MonoBehaviour
     {
 
+        [SerializeField]
+        private LayerMask _layerMask;
+        
         // private float lastWheelValue = 0;
         // private GameInputController m_gameInputController;
 
@@ -70,8 +73,8 @@ namespace TheGame
             if (pressed)
             {
                 Vector2 mousePosition = GameController.Instance.InputController.mouseWorldPosition;
-                Collider2D colliderUnderMouse = Physics2D.OverlapPoint(mousePosition);
-                if (colliderUnderMouse != null && colliderUnderMouse.gameObject.CompareTag("Present"))
+                Collider2D colliderUnderMouse = Physics2D.OverlapPoint(mousePosition, _layerMask);
+                if (colliderUnderMouse != null)
                 {
                     draggedObject = colliderUnderMouse.gameObject.GetComponent<Present>();
                     draggedObject.setIsDragged(true);
