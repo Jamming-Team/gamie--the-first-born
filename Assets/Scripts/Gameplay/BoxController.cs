@@ -8,7 +8,7 @@ namespace TheGame
 {
     public class BoxController : MonoBehaviour
     {
-        public Action<bool> OnBoxChangeAvaliability;
+        public Action<List<Present>, bool> OnCalculateBoxScore;
         
         [SerializeField] private Vector2 m_initialPosition;
         // [VisualizableVector]
@@ -16,8 +16,12 @@ namespace TheGame
         [SerializeField] private Vector2 m_outPosition;
         
         [SerializeField] private GameObject m_contentsRoot;
+        [SerializeField] private Transform m_lidTransform;
+        [SerializeField] private float m_lidOffset;
+        [SerializeField] private BoxCollider2D m_collider;
 
-        private List<GameObject> m_presentsList = new(); 
+        private List<Present> m_presentsList = new();
+        private bool m_boxIsAvaliable = false;
 
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,26 +29,81 @@ namespace TheGame
         {
             m_initialPosition = transform.position;
 
-            OnBoxChangeAvaliability += b => Debug.Log(b);
+            // OnBoxChangeAvaliability += b => Debug.Log(b);
 
-            Sequence.Create(1)
-                .ChainCallback(() => OnBoxChangeAvaliability?.Invoke(false))
-                .Chain(Tween.Position(transform, endValue: m_standPosition, duration: 1f, ease: Ease.InOutSine));
-            // .ChainDelay(2f)
-            // .Chain(Tween.Position(transform, endValue: m_outPosition, duration: 1f, ease: Ease.InOutSine))
-            // .ChainCallback(() => OnBoxChangeAvaliability?.Invoke(true));
+            m_collider.enabled = false;
+            
+            // Sequence.Create(1)
+            //     .ChainCallback(() => OnBoxChangeAvaliability?.Invoke(false))
+            //     .Chain(Tween.Position(transform, endValue: m_standPosition, duration: 1f, ease: Ease.InOutSine))
+            //     .ChainDelay(0.1f)
+            //     .ChainCallback(() => Debug.Log(m_lidTransform.position.y))
+            //     .Chain(Tween.PositionY(m_lidTransform,  endValue: m_lidOffset, duration: 0.5f, ease: Ease.InOutSine))
+            //     .ChainDelay(2f)
+            //     .Chain(Tween.PositionY(m_lidTransform,  endValue: 0f, duration: 0.5f, ease: Ease.InOutSine))
+            //     .Chain(Tween.Position(transform, endValue: m_outPosition, duration: 1f, ease: Ease.InOutSine))
+            //     .ChainCallback(() => OnBoxChangeAvaliability?.Invoke(true));
 
 
             // Tween.Position(transform, endValue: m_standPosition, duration: 0.5f, ease: Ease.InBounce);
+            
+            GameController.Instance.InputController.OnSendBox += InputControllerOnOnSendBox;
+            
         }
 
-        public void AddPresent(GameObject present)
+        private void InputControllerOnOnSendBox(object sender, EventArgs e)
+        {
+            if (m_boxIsAvaliable)
+            {
+                SendBox();
+            }
+        }
+
+        public void PrepareBox()
+        {
+            Sequence.Create(1)
+                // .ChainCallback(() => transform.position = m_initialPosition)
+                .Chain(Tween.Position(transform, startValue: m_initialPosition,  endValue: m_standPosition, duration: 1f, ease: Ease.InOutSine))
+                .ChainDelay(0.1f)
+                .ChainCallback(() => Debug.Log(m_lidTransform.position.y))
+                .Chain(Tween.PositionY(m_lidTransform, endValue: m_lidOffset, duration: 0.5f, ease: Ease.InOutSine))
+                .ChainCallback(() =>
+                {
+                    m_collider.enabled = true;
+                    m_boxIsAvaliable = true;
+                });
+        }
+
+        private void SendBox(bool overlapped = false)
+        {
+            Sequence.Create(1)
+                .ChainCallback(() =>
+                {
+                    m_collider.enabled = false;
+                    m_boxIsAvaliable = false;
+                })
+                .Chain(Tween.PositionY(m_lidTransform, endValue: 0f, duration: 0.5f, ease: Ease.InOutSine))
+                .Chain(Tween.Position(transform, endValue: m_outPosition, duration: 1f, ease: Ease.InOutSine))
+                .ChainCallback(() =>
+                {
+                    OnCalculateBoxScore?.Invoke(m_presentsList, overlapped);
+                    ClearContents();
+                })
+                .ChainDelay(1f)
+                .ChainCallback(PrepareBox);
+        }
+
+        public void AddPresent(Present present, bool overlapped = false)
         {
             present.transform.SetParent(m_contentsRoot.transform);
             m_presentsList.Add(present);
+            if (overlapped)
+                SendBox(true);
         }
+        
+        
 
-        public void ClearContents()
+        private void ClearContents()
         {
             m_presentsList.ForEach(Destroy);
         }

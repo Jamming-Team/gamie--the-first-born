@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheGame
@@ -13,6 +14,8 @@ namespace TheGame
         [SerializeField] private float m_gameTimer = 60f;
         [SerializeField] private float m_timeLeft = -1f;
         [SerializeField] private float m_timeLeftNormalized = -1f;
+        [SerializeField] private BoxController m_boxController;
+        
         private int m_totalPoints = 0;
         public int totalPoints => m_totalPoints;
         
@@ -43,12 +46,19 @@ namespace TheGame
         {
             base.Initialize();
             m_dragNDropHandler.Init();
+            m_boxController.OnCalculateBoxScore += OnCalculateBoxScore;
+        }
+
+        private void OnCalculateBoxScore(List<Present> arg1, bool arg2)
+        {
+            IncreaseScore(10);
         }
 
         public void StartGame()
         {
             m_totalPoints = 0;
             StartTimer();
+            m_boxController.PrepareBox();
         }
 
         public void StartTimer()
