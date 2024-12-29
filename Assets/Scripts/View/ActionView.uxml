@@ -24,4 +24,5 @@
         </engine:VisualElement>
         <engine:Button text="PAUSE" name="PauseButton" />
     </engine:VisualElement>
+    <engine:Button text="SEND BOX (SPACE)" name="SendBoxButton" style="width: 50%; align-self: center; max-height: 51px; bottom: -176px;" />
 </engine:UXML>

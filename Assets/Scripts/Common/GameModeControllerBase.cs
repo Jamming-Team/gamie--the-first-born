@@ -8,6 +8,7 @@ namespace TheGame
         
         [SerializeField]
         protected StateMachine m_stateMachine;
+        public StateBase currentState => m_stateMachine.currentState;
         
         [SerializeField] 
         public Camera m_camera;

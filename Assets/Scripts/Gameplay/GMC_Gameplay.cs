@@ -20,6 +20,8 @@ namespace TheGame
         private float m_totalPoints = 0;
         public float totalPoints => m_totalPoints;
         
+        
+        
         // public override void Initialize(GameInputController inputManager)
         // {
         //     base.Initialize(inputManager);

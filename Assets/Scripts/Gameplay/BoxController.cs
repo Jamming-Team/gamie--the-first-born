@@ -54,7 +54,7 @@ namespace TheGame
             
         }
 
-        private void InputControllerOnOnSendBox(object sender, EventArgs e)
+        public void InputControllerOnOnSendBox(object sender, EventArgs e)
         {
             if (m_boxIsAvaliable)
             {
@@ -96,7 +96,7 @@ namespace TheGame
                 .ChainDelay(1f)
                 .ChainCallback(() =>
                 {
-                    if (shouldReturn)
+                    if (shouldReturn && GameModeControllerBase.Instance.currentState.GetType() != typeof(GP_PostGameGMState))
                         PrepareBox();
                 });
         }

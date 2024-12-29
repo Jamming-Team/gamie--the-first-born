@@ -6,11 +6,15 @@ namespace TheGame
 {
     public class GP_ActionGMState : GameModeStateBase
     {
+        [SerializeField]
+        private BoxController m_BoxController;
+        
         protected override void OnEnter()
         {
             base.OnEnter();
             GameController.Instance.InputController.OnPause += InputControllerOnOnPause;
             GameEventsView.OnPressPause += OnPressPause;
+            GameEventsView.OnPressSendBox += OnPressSendBox;
 
             // GameController.Instance.InputController.OnSendBox += (sender, args) =>
             // {
@@ -42,6 +46,11 @@ namespace TheGame
         private void OnPressPause()
         {
             RequestTransition<GP_PauseGMState>();
+        }
+        
+        private void OnPressSendBox()
+        {
+            m_BoxController.InputControllerOnOnSendBox(this, null);
         }
     }
 }

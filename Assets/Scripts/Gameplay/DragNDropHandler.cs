@@ -71,7 +71,7 @@ namespace TheGame
 
         private void InputControllerOnOnRMC(object sender, bool pressed)
         {
-            if (pressed)
+            if (pressed && GameModeControllerBase.Instance.currentState.GetType() != typeof(GP_PostGameGMState))
             {
                 Vector2 mousePosition = GameController.Instance.InputController.mouseWorldPosition;
                 Collider2D colliderUnderMouse = Physics2D.OverlapPoint(mousePosition, _layerMask);
