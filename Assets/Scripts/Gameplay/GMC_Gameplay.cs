@@ -15,6 +15,7 @@ namespace TheGame
         [SerializeField] private float m_timeLeft = -1f;
         [SerializeField] private float m_timeLeftNormalized = -1f;
         [SerializeField] private BoxController m_boxController;
+        [SerializeField] private PresentGenerator m_presentGenerator;
         
         private int m_totalPoints = 0;
         public int totalPoints => m_totalPoints;
@@ -59,6 +60,17 @@ namespace TheGame
             m_totalPoints = 0;
             StartTimer();
             m_boxController.PrepareBox();
+            m_presentGenerator.StartGeneration();
+        }
+
+        public void StopGame()
+        {
+            Debug.Log("Stop Game");
+            if (m_timeLeft != -1f && m_timeLeft <= 0f)
+            {
+                m_presentGenerator.StopGeneration();
+                m_boxController.SendBox(overlapped: false, shouldReturn: false);
+            }
         }
 
         public void StartTimer()

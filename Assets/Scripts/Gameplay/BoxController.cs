@@ -23,6 +23,9 @@ namespace TheGame
         private List<Present> m_presentsList = new();
         private bool m_boxIsAvaliable = false;
 
+        private Sequence m_sequencePrepareBox;
+        private Sequence m_sequenceSendBox;
+        
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -61,7 +64,7 @@ namespace TheGame
 
         public void PrepareBox()
         {
-            Sequence.Create(1)
+            m_sequencePrepareBox = Sequence.Create(1)
                 // .ChainCallback(() => transform.position = m_initialPosition)
                 .Chain(Tween.Position(transform, startValue: m_initialPosition,  endValue: m_standPosition, duration: 1f, ease: Ease.InOutSine))
                 .ChainDelay(0.1f)
@@ -72,11 +75,12 @@ namespace TheGame
                     m_collider.enabled = true;
                     m_boxIsAvaliable = true;
                 });
+            
         }
 
-        private void SendBox(bool overlapped = false)
+        public void SendBox(bool overlapped = false, bool shouldReturn = true)
         {
-            Sequence.Create(1)
+            m_sequenceSendBox = Sequence.Create(1)
                 .ChainCallback(() =>
                 {
                     m_collider.enabled = false;
@@ -90,7 +94,11 @@ namespace TheGame
                     ClearContents();
                 })
                 .ChainDelay(1f)
-                .ChainCallback(PrepareBox);
+                .ChainCallback(() =>
+                {
+                    if (shouldReturn)
+                        PrepareBox();
+                });
         }
 
         public void AddPresent(Present present, bool overlapped = false)
@@ -100,8 +108,19 @@ namespace TheGame
             if (overlapped)
                 SendBox(true);
         }
+
         
         
+        private void OnDestroy()
+        {
+            GameController.Instance.InputController.OnSendBox -= InputControllerOnOnSendBox;
+
+            Debug.Log("Box Destroyed");
+            m_sequencePrepareBox.Complete();
+            m_sequenceSendBox.Complete();
+            Tween.StopAll();
+        }
+
 
         private void ClearContents()
         {

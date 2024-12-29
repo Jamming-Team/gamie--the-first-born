@@ -24,6 +24,7 @@ namespace TheGame
             base.OnExit();
             GameController.Instance.InputController.OnPause -= InputControllerOnOnPause;
             ((GMC_Gameplay)m_core).OnTimerOut -= OnTimerOut;
+            ((GMC_Gameplay)m_core).StopGame();
         }
         
         private void InputControllerOnOnPause(object sender, EventArgs e)

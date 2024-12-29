@@ -693,8 +693,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34dfa257f369d54c96ae478335c7f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generateDelay: 3
-  present: {fileID: 369731809416502605, guid: 772dffa403bc8de478c9577d746db303, type: 3}
+  m_minGenerationDelay: 2
+  m_maxGenerationDelay: 5
+  m_presentsList:
+  - {fileID: 4310893590529467861, guid: 772dffa403bc8de478c9577d746db303, type: 3}
+  - {fileID: 4310893590529467861, guid: 3d4af914965d1286d97fd6aa8efde374, type: 3}
 --- !u!1 &839322799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,10 +1432,11 @@ MonoBehaviour:
   m_camera: {fileID: 519420031}
   m_gameInputManager: {fileID: 0}
   m_dragNDropHandler: {fileID: 175478878}
-  m_gameTimer: 20
+  m_gameTimer: 5
   m_timeLeft: -1
   m_timeLeftNormalized: -1
   m_boxController: {fileID: 1585008802}
+  m_presentGenerator: {fileID: 680007000}
 --- !u!4 &1830345932
 Transform:
   m_ObjectHideFlags: 0

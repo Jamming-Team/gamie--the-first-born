@@ -38,7 +38,7 @@ namespace TheGame
 
         private void OnDestroy()
         {
-            OnExit();
+            // OnExit();
         }
     }
 }
