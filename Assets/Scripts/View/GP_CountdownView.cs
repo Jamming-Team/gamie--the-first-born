@@ -18,7 +18,7 @@ namespace TheGame
 
         private void OnDisable()
         {
-            GameEventsView.OnTimerChanged += OnTimerChanged;
+            GameEventsView.OnTimerChanged -= OnTimerChanged;
         }
         
         private void OnTimerChanged(int obj)

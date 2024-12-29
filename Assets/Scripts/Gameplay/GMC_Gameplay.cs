@@ -11,7 +11,8 @@ namespace TheGame
         [SerializeField] private float m_gameTimer = 60f;
         [SerializeField] private float m_timeLeft = -1f;
         [SerializeField] private float m_timeLeftNormalized = -1f;
-        public float timeLeft => m_timeLeft;
+        private int m_totalPoints = 0;
+        public int totalPoints => m_totalPoints;
         
         // public override void Initialize(GameInputController inputManager)
         // {
@@ -21,7 +22,7 @@ namespace TheGame
 
         private void Update()
         {
-            if (m_timeLeft != 1f && m_timeLeft > 0f)
+            if (m_timeLeft > 0f)
             {
                 m_timeLeft -= Time.deltaTime;
                 m_timeLeftNormalized = m_timeLeft / m_gameTimer;
@@ -34,12 +35,21 @@ namespace TheGame
             m_dragNDropHandler.Init();
         }
 
+        public void StartGame()
+        {
+            m_totalPoints = 0;
+            StartTimer();
+        }
+
         public void StartTimer()
         {
             m_timeLeft = m_gameTimer;
         }
         
-        
-        
+        public void IncreaseScore(int points)
+        {
+            m_totalPoints += points;
+            GameEventsView.OnScoreChanged(m_totalPoints);
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace TheGame
             }
             else
             {
-                ((GMC_Gameplay)m_core).StartTimer();
+                ((GMC_Gameplay)m_core).StartGame();
                 RequestTransition<GP_ActionGMState>();
             }
         }
@@ -47,6 +47,5 @@ namespace TheGame
         {
             GameEventsView.OnTimerChanged?.Invoke(m_timeLeftSeconds);
         }
-
     }
 }
