@@ -107,7 +107,7 @@ MonoBehaviour:
   _presentLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  m_presentValue: 5
+  m_presentValue: 8
   disableX: -6
   speed: 1
 --- !u!60 &822260933686125755
