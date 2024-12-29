@@ -15,5 +15,10 @@
                 <engine:Label text="0" name="ScoreLabel" style="-unity-text-align: middle-center; font-size: 39px;" />
             </engine:VisualElement>
         </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; width: 20%; height: 20%; max-height: 20%; align-content: center; justify-content: center; align-self: flex-start; top: -14px; left: 50px;">
+            <engine:VisualElement class="InnerPanel" style="flex-grow: 1; justify-content: center; align-self: auto;">
+                <engine:Label text="SPACE&#10;TO SEND" name="ScoreLabel" style="-unity-text-align: middle-center; font-size: 28px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/View/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=e3a74b0c8b1c4d2fbda7af6d1b131753&amp;type=3#MainViewStyle" />
-    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; align-items: center; align-self: auto; justify-content: center;">
+    <ui:VisualElement name="Panel" class="panel-gameplay" style="flex-grow: 1; align-items: center; align-self: auto; justify-content: center;">
         <ui:VisualElement name="CenterPanel" class="center-panel" style="flex-grow: 1; align-self: auto; justify-content: flex-start; align-items: center; max-height: 60%; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; width: 50%;">
             <ui:VisualElement class="InnerPanel" style="flex-grow: 1; align-content: auto; justify-content: center; align-items: stretch; flex-direction: row;">
                 <ui:Label text="TOTAL SCORE:" style="align-self: center; align-content: auto; justify-content: flex-start; align-items: stretch; font-size: 26px;" />

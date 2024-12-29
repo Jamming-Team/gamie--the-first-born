@@ -57,12 +57,12 @@
 
 .unity-text-element {
     font-size: 150%;
-    -unity-font-definition: url("project://database/Assets/Visuals/Source/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=efbcb094593e3d2cf9ae853ee2a22ec5&type=3#PixelifySans-VariableFont_wght");
+    -unity-font-definition: url("project://database/Assets/Visuals/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=efbcb094593e3d2cf9ae853ee2a22ec5&type=3#PixelifySans-VariableFont_wght");
 }
 
 .logo {
     min-width: 90%;
-    background-image: url("project://database/Assets/Visuals/Source/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
+    background-image: url("project://database/Assets/Visuals/presents/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
     -unity-background-scale-mode: scale-and-crop;
 }
 
@@ -104,6 +104,9 @@
 
 .central-countdown {
     font-size: 118px;
+    -unity-text-outline-color: rgba(0, 0, 0, 0.67);
+    -unity-text-outline-width: 0;
+    color: rgb(0, 0, 0);
 }
 
 .unity-progress-bar {
@@ -140,12 +143,12 @@
 
 .label-how-to-play {
     font-size: 46px;
-    -unity-font-definition: url("project://database/Assets/Visuals/Source/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=efbcb094593e3d2cf9ae853ee2a22ec5&type=3#PixelifySans-VariableFont_wght");
+    -unity-font-definition: url("project://database/Assets/Visuals/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=efbcb094593e3d2cf9ae853ee2a22ec5&type=3#PixelifySans-VariableFont_wght");
 }
 
 .logo-credits {
     min-width: 90%;
-    background-image: url("project://database/Assets/Visuals/Source/podarok-5-cookine-man.png?fileID=2800000&guid=661fb438db08b82beb8d96bfc11cce88&type=3#podarok-5-cookine-man");
+    background-image: url("project://database/Assets/Visuals/presents/podarok-5-cookine-man.png?fileID=2800000&guid=661fb438db08b82beb8d96bfc11cce88&type=3#podarok-5-cookine-man");
     -unity-background-scale-mode: scale-to-fit;
 }
 
@@ -201,6 +204,13 @@
 
 .logo-details {
     min-width: 90%;
-    background-image: url("project://database/Assets/Visuals/Source/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
+    background-image: url("project://database/Assets/Visuals/presents/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
     -unity-background-scale-mode: scale-to-fit;
+}
+
+.panel-gameplay {
+    background-color: rgba(196, 64, 84, 0.22);
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
 }

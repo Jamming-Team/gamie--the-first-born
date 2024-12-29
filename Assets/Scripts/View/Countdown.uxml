@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/View/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=e3a74b0c8b1c4d2fbda7af6d1b131753&amp;type=3#MainViewStyle" />
-    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; align-items: center; align-self: auto; justify-content: center;">
+    <ui:VisualElement name="Panel" class="panel-gameplay" style="flex-grow: 1; align-items: center; align-self: auto; justify-content: center; background-color: rgba(196, 64, 84, 0);">
         <ui:Label text="3" name="CountdownLabel" class="central-countdown" />
     </ui:VisualElement>
 </ui:UXML>
