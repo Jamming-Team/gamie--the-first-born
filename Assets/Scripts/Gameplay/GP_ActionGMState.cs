@@ -10,6 +10,7 @@ namespace TheGame
         {
             base.OnEnter();
             GameController.Instance.InputController.OnPause += InputControllerOnOnPause;
+            GameEventsView.OnPressPause += OnPressPause;
 
             // GameController.Instance.InputController.OnSendBox += (sender, args) =>
             // {
@@ -24,6 +25,7 @@ namespace TheGame
             base.OnExit();
             GameController.Instance.InputController.OnPause -= InputControllerOnOnPause;
             ((GMC_Gameplay)m_core).OnTimerOut -= OnTimerOut;
+            GameEventsView.OnPressPause -= OnPressPause;
             ((GMC_Gameplay)m_core).StopGame();
         }
         
@@ -35,6 +37,11 @@ namespace TheGame
         private void OnTimerOut()
         {
             RequestTransition<GP_PostGameGMState>();
+        }
+        
+        private void OnPressPause()
+        {
+            RequestTransition<GP_PauseGMState>();
         }
     }
 }

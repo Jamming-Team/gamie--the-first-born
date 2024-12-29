@@ -38,6 +38,7 @@ namespace TheGame
             public const string COUNTDOWN_LABEL = "CountdownLabel";
             public const string SCORE_LABEL = "ScoreLabel";
             public const string FINAL_SCORE_LABEL = "FinalScoreLabel";
+            public const string PAUSE_BUTTON = "PauseButton";
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TheGame
@@ -10,6 +11,7 @@ namespace TheGame
             GameEventsView.OnPressResume += OnPressResume;
             GameEventsView.OnPressRestartGame += OnPressRestart;
             GameEventsView.OnPressToMainMenu += OnPressToMainMenu;
+            GameController.Instance.InputController.OnPause += InputControllerOnOnPause;
             GameController.Instance.SetGameTimeScale(0f);
         }
 
@@ -19,6 +21,7 @@ namespace TheGame
             GameEventsView.OnPressResume -= OnPressResume;
             GameEventsView.OnPressRestartGame -= OnPressRestart;
             GameEventsView.OnPressToMainMenu -= OnPressToMainMenu;
+            GameController.Instance.InputController.OnPause -= InputControllerOnOnPause;
             GameController.Instance.SetGameTimeScale(1f);
         }
         
@@ -35,6 +38,11 @@ namespace TheGame
         private void OnPressToMainMenu()
         {
             GameController.Instance.LoadScene(GameConstants.SceneNames.MAIN_MENU);
+        }
+        
+        private void InputControllerOnOnPause(object sender, EventArgs e)
+        {
+            RequestTransition<GP_ActionGMState>();
         }
     }
 }

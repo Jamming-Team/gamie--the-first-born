@@ -21,5 +21,6 @@ namespace TheGame
         public static Action OnPressToMainMenu;
         public static Action<int> OnTimerChanged;
         public static Action<float> OnScoreChanged;
+        public static Action OnPressPause;
     }
 }
