@@ -14,6 +14,8 @@ namespace TheGame
         //     m_gameInputController = gameInputController;
         // }
         //
+        
+        private Present draggedObject = null;
 
         public void Init()
         {
@@ -44,6 +46,11 @@ namespace TheGame
             //     Debug.Log("Mouse is over: " + colliderUnderMouse.gameObject.name);
             // }
 
+            if (draggedObject != null)
+            {
+                draggedObject.setPosition(mousePosition);
+            }
+
             // Для колесика
             // if (GameController.Instance.InputController.mouseWheelScroll != lastWheelValue)
             // {
@@ -59,13 +66,27 @@ namespace TheGame
 
         private void InputControllerOnOnRMC(object sender, bool pressed)
         {
-            // Debug.Log($"RMC: {pressed}");
+            Debug.Log($"RMC: {pressed}");
+            if (pressed)
+            {
+                Vector2 mousePosition = GameController.Instance.InputController.mouseWorldPosition;
+                Collider2D colliderUnderMouse = Physics2D.OverlapPoint(mousePosition);
+                if (colliderUnderMouse != null && colliderUnderMouse.gameObject.CompareTag("Present"))
+                {
+                    draggedObject = colliderUnderMouse.gameObject.GetComponent<Present>();
+                    draggedObject.setIsDragged(true);
+                }
+            }
+            else if (draggedObject != null)
+            {
+                draggedObject.setIsDragged(false);
+                draggedObject = null;
+            }
         }
 
         private void InputControllerOnOnLMC(object sender, bool pressed)
         {
             // Debug.Log($"LMC: {pressed}");
         }
-        
     }
 }
