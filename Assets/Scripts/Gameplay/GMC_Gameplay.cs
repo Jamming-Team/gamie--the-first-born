@@ -5,6 +5,8 @@ namespace TheGame
 {
     public class GMC_Gameplay : GameModeControllerBase
     {
+        public Action OnTimerOut;
+        
         [SerializeField]
         protected DragNDropHandler m_dragNDropHandler;
 
@@ -26,6 +28,14 @@ namespace TheGame
             {
                 m_timeLeft -= Time.deltaTime;
                 m_timeLeftNormalized = m_timeLeft / m_gameTimer;
+            }
+            else
+            {
+                if (m_stateMachine.currentState.GetType() == typeof(GP_ActionGMState))
+                {
+                    OnTimerOut?.Invoke();
+                    // IncreaseScore(0);
+                }
             }
         }
 
@@ -49,7 +59,7 @@ namespace TheGame
         public void IncreaseScore(int points)
         {
             m_totalPoints += points;
-            GameEventsView.OnScoreChanged(m_totalPoints);
+            GameEventsView.OnScoreChanged?.Invoke(m_totalPoints);
         }
     }
 }
