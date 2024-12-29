@@ -12,6 +12,8 @@ namespace TheGame
         private Button m_pauseButton;
         private Button m_sendBoxButton;
         
+        private int m_score = 0;
+        
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -25,6 +27,7 @@ namespace TheGame
             GameEventsView.OnScoreChanged += OnScoreChanged;
             m_pauseButton.clicked += M_pauseButtonOnclicked;
             m_sendBoxButton.clicked += M_sendBoxButtonOnclicked;
+            OnScoreChanged(m_score);
         }
 
         private void OnDisable()
@@ -34,6 +37,7 @@ namespace TheGame
 
         private void OnScoreChanged(float obj)
         {
+            m_score = (int)obj;
             m_scoreLabel.text = obj.ToString();
         }
         

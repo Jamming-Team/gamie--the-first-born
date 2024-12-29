@@ -1,5 +1,5 @@
 .panel {
-    background-color: rgb(196, 64, 84);
+    background-color: rgb(191, 71, 89);
     align-items: center;
     justify-content: center;
     flex-grow: 1;
@@ -31,7 +31,7 @@
 }
 
 .center-panel {
-    background-color: rgba(53, 228, 62, 0.64);
+    background-color: rgba(61, 209, 69, 0.64);
     align-self: auto;
     align-items: center;
     height: auto;
@@ -62,7 +62,7 @@
 
 .logo {
     min-width: 90%;
-    background-image: url("project://database/Assets/Visuals/presents/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
+    background-image: url("project://database/Assets/Visuals/presents/podarok-2-mashina.png?fileID=2800000&guid=341e6ceb843eaa4468a21d30afd1d07d&type=3#podarok-2-mashina");
     -unity-background-scale-mode: scale-and-crop;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .center-panel-how-to-play {
-    background-color: rgba(53, 228, 62, 0.64);
+    background-color: rgba(61, 209, 69, 0.64);
     align-self: auto;
     align-items: center;
     height: auto;
@@ -148,7 +148,7 @@
 
 .logo-credits {
     min-width: 90%;
-    background-image: url("project://database/Assets/Visuals/presents/podarok-5-cookine-man.png?fileID=2800000&guid=661fb438db08b82beb8d96bfc11cce88&type=3#podarok-5-cookine-man");
+    background-image: url("project://database/Assets/Visuals/presents/podarok-5-cookine-man.png?fileID=2800000&guid=87e40c92bdb2af5469f9e6c648503679&type=3#podarok-5-cookine-man");
     -unity-background-scale-mode: scale-to-fit;
 }
 
@@ -204,7 +204,7 @@
 
 .logo-details {
     min-width: 90%;
-    background-image: url("project://database/Assets/Visuals/presents/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
+    background-image: url("project://database/Assets/Visuals/presents/podarok-2-mashina.png?fileID=2800000&guid=341e6ceb843eaa4468a21d30afd1d07d&type=3#podarok-2-mashina");
     -unity-background-scale-mode: scale-to-fit;
 }
 
