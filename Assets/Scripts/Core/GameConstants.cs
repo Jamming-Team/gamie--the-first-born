@@ -29,7 +29,9 @@ namespace TheGame
             public const string HOW_TO_PLAY_BUTTON = "HowToPlayButton";
             public const string QUIT_BUTTON = "QuitButton";
             public const string BACK_BUTTON = "BackButton";
-            
+            public const string CREDITS_BUTTON = "CreditsButton";
+            public const string HOW_TO_PLAY_NEXT_BUTTON = "HowToPlayNextButton";
+
             public const string RESUME_BUTTON = "ResumeButton";
             public const string RESTART_BUTTON = "RestartButton";
             public const string TO_MAIN_MENU_BUTTON = "ToMainMenuButton";

@@ -1,10 +1,8 @@
 .panel {
-    background-color: rgba(204, 182, 182, 0.33);
-}
-
-.logo {
-    min-width: 90%;
-    background-image: url("project://database/Assets/Visuals/sword.png?fileID=2800000&guid=7cabff87f7709db888fe183d93095653&type=3#sword");
+    background-color: rgb(196, 64, 84);
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 .unity-button {
@@ -15,11 +13,11 @@
     align-content: auto;
     background-color: rgba(204, 197, 130, 0.78);
     font-size: 16px;
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    width: 98%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
     border-top-width: 2px;
     border-right-width: 2px;
     border-bottom-width: 2px;
@@ -29,31 +27,52 @@
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
     height: auto;
+    margin-top: 3%;
 }
 
 .center-panel {
-    background-color: rgba(158, 197, 83, 0.48);
-    align-self: center;
-    align-items: stretch;
+    background-color: rgba(53, 228, 62, 0.64);
+    align-self: auto;
+    align-items: center;
     height: auto;
-    max-height: none;
-    justify-content: center;
+    max-height: 70%;
+    justify-content: flex-start;
     align-content: auto;
     flex-direction: column;
+    border-left-color: rgba(0, 0, 0, 0.29);
+    border-right-color: rgba(0, 0, 0, 0.29);
+    border-top-color: rgba(0, 0, 0, 0.29);
+    border-bottom-color: rgba(0, 0, 0, 0.29);
+    width: 50%;
+    border-top-width: 7px;
+    border-right-width: 7px;
+    border-bottom-width: 7px;
+    border-left-width: 7px;
+    flex-grow: 1;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
 }
 
 .unity-text-element {
     font-size: 150%;
+    -unity-font-definition: url("project://database/Assets/Visuals/Source/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=efbcb094593e3d2cf9ae853ee2a22ec5&type=3#PixelifySans-VariableFont_wght");
+}
+
+.logo {
+    min-width: 90%;
+    background-image: url("project://database/Assets/Visuals/Source/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
+    -unity-background-scale-mode: scale-and-crop;
 }
 
 .unity-button:hover {
-    -unity-background-image-tint-color: rgb(207, 196, 77);
-    background-color: rgba(209, 46, 46, 0.73);
+    background-color: rgba(212, 33, 33, 0.73);
     transition-property: scale;
     transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
     transition-delay: 0s;
-    scale: 1.1 1.1;
+    scale: 1.05 1.05;
 }
 
 .unity-button:inactive {
@@ -77,10 +96,10 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
 }
 
 .central-countdown {
@@ -88,4 +107,100 @@
 }
 
 .unity-progress-bar {
+}
+
+.panel-ingame {
+    background-color: rgba(204, 182, 182, 0.33);
+}
+
+.center-panel-how-to-play {
+    background-color: rgba(53, 228, 62, 0.64);
+    align-self: auto;
+    align-items: center;
+    height: auto;
+    max-height: 85%;
+    justify-content: flex-start;
+    align-content: auto;
+    flex-direction: column;
+    border-left-color: rgba(0, 0, 0, 0.29);
+    border-right-color: rgba(0, 0, 0, 0.29);
+    border-top-color: rgba(0, 0, 0, 0.29);
+    border-bottom-color: rgba(0, 0, 0, 0.29);
+    width: 74%;
+    border-top-width: 7px;
+    border-right-width: 7px;
+    border-bottom-width: 7px;
+    border-left-width: 7px;
+    flex-grow: 1;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+}
+
+.label-how-to-play {
+    font-size: 46px;
+    -unity-font-definition: url("project://database/Assets/Visuals/Source/PixelifySans-VariableFont_wght.ttf?fileID=12800000&guid=efbcb094593e3d2cf9ae853ee2a22ec5&type=3#PixelifySans-VariableFont_wght");
+}
+
+.logo-credits {
+    min-width: 90%;
+    background-image: url("project://database/Assets/Visuals/Source/podarok-5-cookine-man.png?fileID=2800000&guid=661fb438db08b82beb8d96bfc11cce88&type=3#podarok-5-cookine-man");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.TableCell {
+    width: 100%;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.TableCellVertical {
+    width: 100%;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    justify-content: center;
+}
+
+.TableCellHorizontal {
+    width: 100%;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    flex-direction: row;
+}
+
+.logo-details {
+    min-width: 90%;
+    background-image: url("project://database/Assets/Visuals/Source/podarok-2-mashina.png?fileID=2800000&guid=3ed2c3ab9666830f88ecb26cee1e6153&type=3#podarok-2-mashina");
+    -unity-background-scale-mode: scale-to-fit;
 }

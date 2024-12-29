@@ -1,11 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/View/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=e3a74b0c8b1c4d2fbda7af6d1b131753&amp;type=3#MainViewStyle" />
-    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; align-items: center; align-self: auto; justify-content: center;">
-        <ui:VisualElement name="CenterPanel" class="center-panel" style="flex-grow: 1; align-self: auto; justify-content: flex-start; align-items: center; max-height: 60%; padding-top: 2%; padding-right: 2%; padding-bottom: 2%; padding-left: 2%; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; width: 30%;">
+    <ui:VisualElement name="Panel" class="panel">
+        <ui:VisualElement name="CenterPanel" class="center-panel">
             <ui:VisualElement name="Logo" class="logo" style="flex-grow: 1; min-width: 100px; width: auto; min-height: auto; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px;" />
             <ui:Button text="PLAY" name="PlayButton" />
             <ui:Button text="HOW TO PLAY" name="HowToPlayButton" />
-            <ui:Button text="EXIT" name="QuitButton" />
+            <ui:Button text="CREDITS" name="CreditsButton" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
