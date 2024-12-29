@@ -4,7 +4,7 @@
         <ui:VisualElement name="CenterPanel" class="center-panel-how-to-play">
             <ui:VisualElement name="InnerPanel" class="InnerPanel" style="flex-grow: 1; padding-bottom: 0; margin-bottom: 5%; height: 80%;">
                 <ui:Label text="RULES" name="TitleLabel" style="white-space: normal; font-size: 32px; align-items: stretch; -unity-text-align: upper-center;" />
-                <ui:Label text=" Your objective is to prepare Christmas presents. Fit in the box as many as you can and then send it to get another one. The more items you have in the box, the more is your score multiplier for it.&#10;But beware! If you overlap a toy with another one, the box will send itself for reduced score value.&#10;" name="DescriptionLabel" style="white-space: normal; font-size: 17px;" />
+                <ui:Label text=" You have only 90 seconds to prepare Christmas presents!&#10; Fit in the box as many as you can and then send it to get another one. The more items you have in the box, the more is your score multiplier for it.&#10; But beware! If you overlap a toy with another one, the box will send itself for reduced score value.&#10;" name="DescriptionLabel" style="white-space: normal; font-size: 17px;" />
                 <ui:Label text="CONTROLS" name="TitleLabel" style="white-space: normal; font-size: 32px; align-items: stretch; -unity-text-align: upper-center;" />
                 <ui:Label text="Left Mouse Click to drag and drop&#10;Mouse Wheel to rotate&#10;SPACE to send current box&#10;ESC to enter the pause menu" name="DescriptionLabel" style="white-space: normal; font-size: 17px;" />
             </ui:VisualElement>

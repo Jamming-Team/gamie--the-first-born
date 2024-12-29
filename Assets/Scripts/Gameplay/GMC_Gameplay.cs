@@ -61,7 +61,7 @@ namespace TheGame
                 final_box_score += x.presentValue;
             });
             final_box_score *= .5f * arg1.Count * (arg2 ? .5f : 1f);
-            IncreaseScore(final_box_score);
+            IncreaseScore(Mathf.Floor(final_box_score));
         }
 
         public void StartGame()

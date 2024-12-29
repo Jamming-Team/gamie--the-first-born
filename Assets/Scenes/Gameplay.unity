@@ -1142,7 +1142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34dfa257f369d54c96ae478335c7f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_minGenerationDelay: 1
+  m_minGenerationDelay: 2
   m_maxGenerationDelay: 4
   m_presentsList:
   - {fileID: 2965611101521539019, guid: be4504f2b6986784eb7fe7b26390fa59, type: 3}
@@ -1150,6 +1150,7 @@ MonoBehaviour:
   - {fileID: 7837609701927203994, guid: 828079f969685ba40a7ec081939facac, type: 3}
   - {fileID: 4252850686464451269, guid: 99c21d7a90d1d13458f77e4e246fa46e, type: 3}
   - {fileID: 5488837384366384140, guid: b4f7345e87000d842acad19285f8dd4d, type: 3}
+  m_generateDelayNotRandom: 2.8
 --- !u!1 &696207145
 GameObject:
   m_ObjectHideFlags: 0
