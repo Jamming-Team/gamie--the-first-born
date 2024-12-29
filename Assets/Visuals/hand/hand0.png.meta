@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 42fadb2ffaaf5724d8a69f52b9b3a2e7
+guid: 2ac8de59397c88c4e81ef39a24d83446
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8664822561815330936
-    second: hand sheet_0
-  - first:
-      213: 1159782590749297156
-    second: hand sheet_1
+      213: 6445862850341899373
+    second: hand0001_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -27,7 +24,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +57,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 7
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -142,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hand sheet_0
+      name: hand0001_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 8
-        width: 21
-        height: 16
+        x: 17
+        y: 26
+        width: 59
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,30 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8700bc63632af3870800000000000000
-      internalID: 8664822561815330936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hand sheet_1
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 8
-        width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 40a4b4a1f10681010800000000000000
-      internalID: 1159782590749297156
+      spriteID: d6c04895c1e447950800000000000000
+      internalID: 6445862850341899373
       vertices: []
       indices: 
       edges: []
