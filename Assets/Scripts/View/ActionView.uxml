@@ -11,10 +11,13 @@
     <engine:VisualElement name="CenterPanel" class="center-panel" style="align-self: flex-end; width: 50%; max-height: 48%; right: 16px; top: 55px; background-color: rgba(187, 190, 96, 0.51);">
         <engine:VisualElement name="InnerPanel" class="InnerPanel" style="flex-grow: 1; padding-bottom: 0; margin-bottom: 5%; height: 80%;">
             <engine:VisualElement class="InnerPanel" style="flex-grow: 1; flex-direction: row; align-content: flex-start; justify-content: space-between; max-height: 65px; min-height: 58px;">
-                <engine:VisualElement class="InnerPanel" style="flex-grow: 1; width: auto; min-width: 156px; max-width: 156px;">
+                <engine:VisualElement class="InnerPanel" style="flex-grow: 1; width: auto; min-width: 156px; max-width: 156px; border-top-width: -25px; border-right-width: -25px; border-bottom-width: -25px; border-left-width: -25px;">
                     <engine:Label text="SCORE:" style="align-self: center; left: 12px; font-size: 30px;" />
                 </engine:VisualElement>
-                <engine:Label text="1" style="align-self: center; align-items: center; justify-content: center; right: 0; font-size: 30px; -unity-text-align: upper-center; padding-right: 2px; padding-left: 2px;" />
+                <engine:VisualElement style="flex-grow: 1; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);" />
+                <engine:VisualElement class="InnerPanel" style="flex-grow: 1; width: auto; min-width: 156px; max-width: 156px; border-top-width: -33px; border-right-width: -33px; border-bottom-width: -33px; border-left-width: -33px;">
+                    <engine:Label text="1" name="ScoreLabel" style="align-self: center; align-items: center; justify-content: center; right: 0; font-size: 30px; -unity-text-align: upper-center; padding-right: 2px; padding-left: 2px;" />
+                </engine:VisualElement>
             </engine:VisualElement>
             <engine:Label text="LMC - Drag and Drop&#10;Mouse Wheel - Rotate&#10;SPACE - Send Box&#10;ESC - Open Pause Menu" name="DescriptionLabel" style="white-space: normal; font-size: 16px; padding-right: 2px; padding-left: 2px; margin-left: 2px; margin-right: 2px;" />
             <engine:VisualElement style="flex-grow: 1; width: 20%; height: 20%; max-height: 20%; align-content: center; justify-content: center; align-self: flex-end;" />
