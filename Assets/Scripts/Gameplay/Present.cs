@@ -24,7 +24,7 @@ namespace TheGame
         {
             _conveyorPosition = gameObject.transform.position;
         }
-        
+
         void Update()
         {
             _conveyorPosition += Vector2.left * (speed * Time.deltaTime);
@@ -33,7 +33,7 @@ namespace TheGame
             {
                 gameObject.transform.position = _conveyorPosition;
             }
-            
+
             if (gameObject.transform.position.x < disableX)
             {
                 gameObject.SetActive(false);
@@ -56,18 +56,12 @@ namespace TheGame
             }
             else
             {
-                List<Collider2D> overlapBoxList = new List<Collider2D>();
-                ContactFilter2D boxContactFilter = new ContactFilter2D();
-                boxContactFilter.SetLayerMask(_boxLayerMask);
-                Physics2D.OverlapCollider(gameObject.GetComponent<Collider2D>(), boxContactFilter, overlapBoxList);
+                List<Collider2D> overlapBoxList = GetOverlapColliders(_boxLayerMask);
                 if (overlapBoxList.Count > 0 && IsFullyInsideBox(overlapBoxList[0].gameObject))
                 {
                     _currState = PresentState.InBox;
-                    List<Collider2D> overlapPresentsList = new List<Collider2D>();
-                    ContactFilter2D presentContactFilter = new ContactFilter2D();
-                    presentContactFilter.SetLayerMask(_presentLayerMask);
-                    Physics2D.OverlapCollider(gameObject.GetComponent<Collider2D>(), presentContactFilter, overlapPresentsList);
-                    overlapBoxList[0].gameObject.GetComponent<BoxController>().AddPresent(this, overlapPresentsList.Count > 0);
+                    overlapBoxList[0].gameObject.GetComponent<BoxController>()
+                        .AddPresent(this, GetOverlapColliders(_presentLayerMask).Count > 0);
                 }
                 else
                 {
@@ -86,7 +80,7 @@ namespace TheGame
                 gameObject.transform.position = position;
             }
         }
-        
+
         private bool IsFullyInsideBox(GameObject box)
         {
             PolygonCollider2D innerCollider = gameObject.GetComponent<PolygonCollider2D>();
@@ -101,6 +95,15 @@ namespace TheGame
                 }
             }
             return true;
+        }
+
+        private List<Collider2D> GetOverlapColliders(LayerMask layerMask)
+        {
+            List<Collider2D> overlapList = new List<Collider2D>();
+            ContactFilter2D contactFilter = new ContactFilter2D();
+            contactFilter.SetLayerMask(layerMask);
+            Physics2D.OverlapCollider(gameObject.GetComponent<Collider2D>(), contactFilter, overlapList);
+            return overlapList;
         }
 
         public enum PresentState
