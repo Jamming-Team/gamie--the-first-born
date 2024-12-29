@@ -125,6 +125,7 @@ namespace TheGame
         private void ClearContents()
         {
             m_presentsList.ForEach(Destroy);
+            m_presentsList = new();
         }
         
     }

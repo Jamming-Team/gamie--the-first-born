@@ -32,7 +32,7 @@ namespace TheGame
             m_toMainMenuButton.clicked -= M_toMainMenuButtonOnclicked;
         }
 
-        private void OnScoreChanged(int obj)
+        private void OnScoreChanged(float obj)
         {
             Debug.Log("OnScoreChanged");
             m_scoreLabel.text = obj.ToString();

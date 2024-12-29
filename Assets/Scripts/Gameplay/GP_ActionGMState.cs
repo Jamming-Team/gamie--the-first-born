@@ -11,10 +11,10 @@ namespace TheGame
             base.OnEnter();
             GameController.Instance.InputController.OnPause += InputControllerOnOnPause;
 
-            GameController.Instance.InputController.OnSendBox += (sender, args) =>
-            {
-                ((GMC_Gameplay)m_core).IncreaseScore(10);
-            };
+            // GameController.Instance.InputController.OnSendBox += (sender, args) =>
+            // {
+            //     ((GMC_Gameplay)m_core).IncreaseScore(10);
+            // };
             
             ((GMC_Gameplay)m_core).OnTimerOut += OnTimerOut;
         }
