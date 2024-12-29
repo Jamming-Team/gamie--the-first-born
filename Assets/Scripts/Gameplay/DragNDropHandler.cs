@@ -39,10 +39,10 @@ namespace TheGame
             // Check if there's a collider at the mouse position
             Collider2D colliderUnderMouse = Physics2D.OverlapPoint(mousePosition);
 
-            if (colliderUnderMouse != null)
-            {
-                Debug.Log("Mouse is over: " + colliderUnderMouse.gameObject.name);
-            }
+            // if (colliderUnderMouse != null)
+            // {
+            //     Debug.Log("Mouse is over: " + colliderUnderMouse.gameObject.name);
+            // }
 
             // Для колесика
             // if (GameController.Instance.InputController.mouseWheelScroll != lastWheelValue)
@@ -54,17 +54,17 @@ namespace TheGame
 
         private void InputControllerOnOnSendBox(object sender, EventArgs e)
         {
-            Debug.Log($"Send Box: {e}");
+            // Debug.Log($"Send Box: {e}");
         }
 
         private void InputControllerOnOnRMC(object sender, bool pressed)
         {
-            Debug.Log($"RMC: {pressed}");
+            // Debug.Log($"RMC: {pressed}");
         }
 
         private void InputControllerOnOnLMC(object sender, bool pressed)
         {
-            Debug.Log($"LMC: {pressed}");
+            // Debug.Log($"LMC: {pressed}");
         }
         
     }

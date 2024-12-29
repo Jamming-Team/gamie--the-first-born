@@ -12,7 +12,7 @@ namespace TheGame
         public override void Init(MonoBehaviour core)
         {
             base.Init(core);
-            SetViewsVisibility(false);
+            Exit();
         }
 
         protected override void OnEnter()
@@ -27,7 +27,11 @@ namespace TheGame
 
         protected void SetViewsVisibility(bool visibility)
         {
-            m_views.ForEach(x => x.SetActive(visibility));
+            m_views?.ForEach(x =>
+            {
+                if (x)
+                    x.SetActive(visibility);
+            });
         }
     }
 }

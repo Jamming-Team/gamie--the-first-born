@@ -32,8 +32,13 @@ namespace TheGame
 
         public void RequestTransition<T>() where T : StateBase
         {
-            Debug.Log(typeof(T).Name);
+            // Debug.Log(typeof(T).Name);
             OnTransitionRequired?.Invoke(typeof(T));
+        }
+
+        private void OnDestroy()
+        {
+            OnExit();
         }
     }
 }
