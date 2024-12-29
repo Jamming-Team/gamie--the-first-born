@@ -18,6 +18,12 @@ namespace TheGame
             m_timeLeftSeconds= m_countdownTime;
             UpdateCountdown();
         }
+        
+        protected override void OnExit()
+        {
+            base.OnExit();
+            Debug.Log(m_core.GetType());
+        }
 
         private void Update()
         {
@@ -32,6 +38,7 @@ namespace TheGame
             }
             else
             {
+                ((GMC_Gameplay)m_core).StartTimer();
                 RequestTransition<GP_ActionGMState>();
             }
         }

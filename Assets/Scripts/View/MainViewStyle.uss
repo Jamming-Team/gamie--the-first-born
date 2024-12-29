@@ -60,6 +60,7 @@
     transition-property: scale;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
+    opacity: 0.99;
 }
 
 .my-button {
@@ -84,4 +85,7 @@
 
 .central-countdown {
     font-size: 118px;
+}
+
+.unity-progress-bar {
 }

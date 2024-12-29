@@ -26,7 +26,7 @@ namespace TheGame
             GetComponentsInChildren(m_states);
             m_states.ForEach(x =>
             {
-                x.Init(this);
+                x.Init(core);
                 x.OnTransitionRequired += ChangeState;
                 // Debug.Log(x.GetType());
             });

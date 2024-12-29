@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/View/MainViewStyle.uss?fileID=7433441132597879392&amp;guid=e3a74b0c8b1c4d2fbda7af6d1b131753&amp;type=3#MainViewStyle" />
+    <engine:VisualElement style="top: 5%;">
+        <TheGame.ProgressBar line-width="29.6" progress="1.02" name="ProgressBarBackground" color="#000000FF" />
+        <TheGame.ProgressBar line-width="18.4" progress="1.03" name="ProgressBarForeground" color="#DB3B2CFF" style="left: auto; right: auto; margin-right: 1%; margin-left: 1%;">
+            <Bindings>
+                <engine:DataBinding property="progress" data-source-path="m_timeLeftNormalized" data-source-type="TheGame.GMC_Gameplay, Assembly-CSharp" binding-mode="ToTarget" />
+            </Bindings>
+        </TheGame.ProgressBar>
+    </engine:VisualElement>
+</engine:UXML>
