@@ -9,6 +9,7 @@ namespace TheGame
         [SerializeField]
         private  List<StateBase> m_states = new();
         private StateBase m_currentState;
+        public StateBase currentState => m_currentState;
         
         
         // protected StateMachine()
