@@ -14,7 +14,7 @@ namespace TheGame
         [SerializeField] private float m_presentValue = 5f;
         public float presentValue => m_presentValue;
         
-        public float disableX = -10f;
+        public float disableX = -6f;
         public float speed = 1f;
 
         private PresentState _currState = PresentState.OnConveyor;
@@ -86,7 +86,7 @@ namespace TheGame
                 if (overlapBoxList.Count > 0 && IsFullyInsideBox(overlapBoxList[0].gameObject))
                 {
                     _currState = PresentState.InBox;
-                    overlapBoxList[0].gameObject.GetComponent<BoxController>()
+                    overlapBoxList[0].gameObject.GetComponentInParent<BoxController>()
                         .AddPresent(this, GetOverlapColliders(_presentLayerMask).Count > 0);
                 }
                 else
