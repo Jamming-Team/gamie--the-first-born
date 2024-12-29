@@ -14,10 +14,19 @@ namespace TheGame
 
         private PresentState _currState = PresentState.OnConveyor;
         private Vector2 _conveyorPosition;
+        
+        private SpriteRenderer _spriteRenderer;
+        private Color _presentDefaultTint;
+        private Color _presentRedTint;
+        private Color _presentYellowTint;
 
         void Start()
         {
             _conveyorPosition = gameObject.transform.position;
+            _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            _presentDefaultTint = gameObject.GetComponent<SpriteRenderer>().color;
+            _presentRedTint = new Color(_presentDefaultTint.r + 50f, _presentDefaultTint.g - 25f, _presentDefaultTint.b - 25f, _presentDefaultTint.a);
+            _presentYellowTint = new Color(_presentDefaultTint.r + 25f, _presentDefaultTint.g + 25f, _presentDefaultTint.b - 50f, _presentDefaultTint.a);
         }
 
         void Update()
@@ -32,6 +41,23 @@ namespace TheGame
             if (gameObject.transform.position.x < disableX)
             {
                 gameObject.SetActive(false);
+            }
+
+            if (_currState == PresentState.Dragged)
+            {
+                List<Collider2D> overlapBoxList = GetOverlapColliders(_boxLayerMask);
+                if (overlapBoxList.Count > 0 && IsFullyInsideBox(overlapBoxList[0].gameObject))
+                {
+                    _spriteRenderer.color = _presentYellowTint;
+                }
+                else
+                {
+                    _spriteRenderer.color = _presentRedTint;
+                }
+            }
+            else
+            {
+                _spriteRenderer.color = _presentDefaultTint;
             }
         }
 
