@@ -10,6 +10,7 @@ namespace TheGame
         public event EventHandler<bool> OnRMC;
         public event EventHandler OnSendBox;
         public event EventHandler OnPause;
+        public event EventHandler<float> OnWheelRotated;
 
         public static GameInputController Instance { get; set; }
         
@@ -119,6 +120,11 @@ namespace TheGame
         void Update()
         {
             // UpdateMouseWorldPosition();
+
+            if (mouseWheelScroll != 0)
+            {
+                OnWheelRotated?.Invoke(this, mouseWheelScroll);
+            }
         }
 
         private Vector3 GetMouseWorldPosition()

@@ -8,6 +8,8 @@ namespace TheGame
 
         [SerializeField]
         private LayerMask _layerMask;
+        [SerializeField]
+        private float m_rotationSpeed = 20f;
         
         // private float lastWheelValue = 0;
         // private GameInputController m_gameInputController;
@@ -26,6 +28,8 @@ namespace TheGame
             GameController.Instance.InputController.OnSendBox += InputControllerOnOnSendBox;
             GameController.Instance.InputController.OnRMC += InputControllerOnOnRMC;
             GameController.Instance.InputController.OnLMC += InputControllerOnOnLMC;
+            GameController.Instance.InputController.OnWheelRotated += InputControllerOnOnWheelRotated;
+
 
         }
 
@@ -34,6 +38,7 @@ namespace TheGame
             GameController.Instance.InputController.OnSendBox -= InputControllerOnOnSendBox;
             GameController.Instance.InputController.OnRMC -= InputControllerOnOnRMC;
             GameController.Instance.InputController.OnLMC -= InputControllerOnOnLMC;
+            GameController.Instance.InputController.OnWheelRotated -= InputControllerOnOnWheelRotated;
         }
 
         void Update()
@@ -75,12 +80,20 @@ namespace TheGame
                     draggedObject = colliderUnderMouse.gameObject.GetComponent<Present>();
                     draggedObject.SetIsDragged(true);
                 }
+                
+                
             }
             else if (draggedObject != null)
             {
                 draggedObject.SetIsDragged(false);
                 draggedObject = null;
             }
+        }
+
+        private void InputControllerOnOnWheelRotated(object sender, float e)
+        {
+            if (draggedObject != null)
+                draggedObject.transform.Rotate(new Vector3(0f, 0f, e * m_rotationSpeed), Space.World);
         }
 
         private void InputControllerOnOnLMC(object sender, bool pressed)
